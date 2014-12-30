@@ -1,32 +1,42 @@
 package nomarthehero.projectfun;
 
+import java.util.HashMap;
+
 public class Hashtag {
 	
 	// INSERT HASHTAGS HERE FOR IN CHAT, EXAMPLE: #tableflip
 	
-	private String[] listOfHashtags = {
-			
-		"tableflip",
-		"molly"
-		
-		//TODO: Gibberish style, replace X with Y, and permission checks
-		
-		
-	};
+	private HashMap<String, String> words = new HashMap<String, String>();
 	
-	public String[] getList() {		
-		String[] list = null;
+	
+	public void registerHashtags() {
 		
-		for (int i = 0; i < listOfHashtags.length; i++) {
-			String newHashtag = "#" + listOfHashtags[i];
-			list[i] = newHashtag;			
-		}
+		//PUT NEW WORDS WITH REPLACEMENTS HERE
 		
-		return list;		
+		add("#tableflip2", "(╯°Д°）╯︵ /(.□ . \\)");
+		add("#tableflip", "(╯°□°)╯︵ ┻━┻");		
+		add("#molly", "༼ つ ◕_◕ ༽つ");
+		add("#happy", "☆*｡. o(≧▽≦)o .｡*☆");
 	}
 	
 	
+	public HashMap<String, String> getList() {		
+		return words;		
+	}
 	
+	public String getHashtag(String hashtag) {
+		return getList().get(hashtag);
+	}
+	
+	public boolean containsHashtag(String hashtag) {
+		if (words.containsKey(hashtag)) 
+			return true;
+		else return false;
+	}
+	
+	private void add(String hashtag, String replacement) {		
+		words.put(hashtag, replacement);		
+	}
 	
 	
 	
