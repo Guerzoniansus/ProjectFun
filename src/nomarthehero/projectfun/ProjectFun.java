@@ -1,8 +1,15 @@
 package nomarthehero.projectfun;
 
+import java.util.ArrayList;
+
+import nomarthehero.projectfun.commands.BaseCommand;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
+
 public class ProjectFun extends JavaPlugin {
+	
+	ArrayList<BaseCommand> commands = new ArrayList<BaseCommand>();
 	
 	/*
 	 * TODO:
@@ -20,6 +27,8 @@ public class ProjectFun extends JavaPlugin {
 	public void onEnable() {		
 		plugin = this;
 		
+		registerAllCommands();
+		
 		hashtag.registerHashtags();
 		
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
@@ -30,6 +39,21 @@ public class ProjectFun extends JavaPlugin {
 		
 	}
 	
+	public void registerCommand(BaseCommand command) {		
+		commands.add(command);		
+	}
+	
+	
+	
+	public void registerAllCommands() {
+		
+		// registerCommand(new BaseCommand());
+				
+		for (BaseCommand command : commands) {			
+			 plugin.getCommand(command.getCommand()).setExecutor(command);		
+		}
+		
+	}
 	
 	public static ProjectFun getPlugin() {		
 		return plugin;
@@ -38,6 +62,7 @@ public class ProjectFun extends JavaPlugin {
 	public Hashtag getHashtag() {
 		return hashtag;
 	}
+	
 	
 
 }
