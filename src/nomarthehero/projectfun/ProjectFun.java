@@ -40,7 +40,7 @@ public class ProjectFun extends JavaPlugin {
 	}
 	
 	public void registerCommand(BaseCommand command) {		
-		commands.add(command);		
+		commands.add(command);
 	}
 	
 	
@@ -48,6 +48,7 @@ public class ProjectFun extends JavaPlugin {
 	public void registerAllCommands() {
 		
 		// registerCommand(new BaseCommand());
+		registerCommand(new SlapCommand());
 				
 		for (BaseCommand command : commands) {			
 			 plugin.getCommand(command.getCommand()).setExecutor(command);		
