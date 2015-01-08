@@ -13,6 +13,7 @@ public class Hashtag {
 		
 		//PUT NEW WORDS WITH REPLACEMENTS HERE
 		
+		add("#dongers",  "ヽ༼ຈل͜ຈ༽ﾉ");
 		add("#tableflip2", "(╯°Д°）╯︵ /(.□ . \\)");
 		add("#tableflip", "(╯°□°)╯︵ ┻━┻");		
 		add("#molly", "༼ つ ◕_◕ ༽つ");
