@@ -16,7 +16,7 @@ public class ProjectFun extends JavaPlugin {
 	 * 
 	 * #cry #tableflip #molly #happy
 	 *
-	 * "/fun, /fun list, /slap <player>, /rekt <player>
+	 * "/fun, /fun list, /rekt <player>
 	 * 
 	 */
 		
@@ -42,6 +42,7 @@ public class ProjectFun extends JavaPlugin {
 	public void registerAllCommands() {
 				
 		plugin.getCommand("slap").setExecutor(new SlapCommand());		
+		plugin.getCommand("hug").setExecutor(new HugCommand());
 		
 	}
 	
