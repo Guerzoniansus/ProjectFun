@@ -18,6 +18,7 @@ public class Hashtag {
 		add("#tableflip", "(╯°□°)╯︵ ┻━┻");		
 		add("#molly", "༼ つ ◕_◕ ༽つ");
 		add("#happy", "☆*｡. o(≧▽≦)o .｡*☆");
+		add("#facepalm", "(－‸ლ)");
 	}
 	
 	
