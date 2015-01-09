@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public abstract class BaseCommand implements CommandExecutor {
+public class SlapCOmmand implements CommandExecutor {
 	
 	/*
 	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
@@ -36,8 +36,6 @@ public abstract class BaseCommand implements CommandExecutor {
 				}
 				
 				else {
-					
-					if(p1.hasPermission("projectfun.slap")) {
 					
 					if (args.length == 0) {
 						   p1.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /slap <player>");
@@ -83,10 +81,6 @@ public abstract class BaseCommand implements CommandExecutor {
 						
 					}
 					
-					} else {
-						p1.sendMessage(ChatColor.RED + "You are not allowed to virtually slap people.");
-						return true;
-					}
 					
 				}
 				return false;

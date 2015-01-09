@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public abstract class BaseCommand implements CommandExecutor {
+public class BaseCommand implements CommandExecutor {
 	
 	/*
 	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND

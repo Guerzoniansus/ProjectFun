@@ -37,22 +37,11 @@ public class ProjectFun extends JavaPlugin {
 	public void onDisable() {
 		
 		
-	}
-	
-	public void registerCommand(BaseCommand command) {		
-		commands.add(command);
-	}
-	
-	
+	}	
 	
 	public void registerAllCommands() {
-		
-		// registerCommand(new BaseCommand());
-		registerCommand(new SlapCommand());
 				
-		for (BaseCommand command : commands) {			
-			 plugin.getCommand(command.getCommand()).setExecutor(command);		
-		}
+		plugin.getCommand("slap").setExecutor(new SlapCommand());		
 		
 	}
 	
