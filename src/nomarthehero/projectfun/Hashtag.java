@@ -12,8 +12,7 @@ public class Hashtag {
 	public void registerHashtags() {
 		
 		//PUT NEW WORDS WITH REPLACEMENTS HERE
-		
-		add("#dongers",  "ヽ༼ຈل͜ຈ༽ﾉ");
+		add("#donger",  "ヽ༼°ل͜°༽ﾉ");
 		add("#tableflip2", "(╯°Д°）╯︵ /(.□ . \\)");
 		add("#tableflip", "(╯°□°)╯︵ ┻━┻");		
 		add("#molly", "༼ つ ◕_◕ ༽つ");
