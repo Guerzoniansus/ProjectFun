@@ -9,15 +9,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ProjectFun extends JavaPlugin {
 	
-	ArrayList<BaseCommand> commands = new ArrayList<BaseCommand>();
-	
 	/*
 	 * TODO:
-	 * 
-	 * #cry #tableflip #molly #happy
 	 *
-	 * "/fun, /fun list, /slap <player>, /rekt <player>
-	 * 
+	 * "/fun, /fun list, /slap <player>, /rekt <player>, /hug <player>
+	 * Hashtags: Angry, Cry, search for more, 
+	 * Messages class: Add color instances
 	 */
 		
 	private static ProjectFun plugin;

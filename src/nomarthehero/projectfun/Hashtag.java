@@ -8,7 +8,6 @@ public class Hashtag {
 	
 	private HashMap<String, String> words = new HashMap<String, String>();
 	
-	
 	public void registerHashtags() {
 		
 		//PUT NEW WORDS WITH REPLACEMENTS HERE

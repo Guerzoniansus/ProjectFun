@@ -7,16 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SlapCOmmand implements CommandExecutor {
+public class SlapCommand implements CommandExecutor {
 	
-	/*
-	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
-	 * 
-	 * Replace "String command = null" with the command, for example "String command = slap" (make sure it's lowercase)
-	 * Replace "String permission = null" with the permission you set it to in the plugin.yml, for example "String permission = projectfun.command.slap" (lowercase)
-	 * 
-	 * Make sure to register the command in ProjectFun
-	 */
 	
 	private String command = /slap;
 	
