@@ -15,6 +15,8 @@ public class ProjectFun extends JavaPlugin {
 	 * "/fun, /fun list, /slap <player>, /rekt <player>, /hug <player>
 	 * Hashtags: Angry, Cry, search for more, 
 	 * Messages class: Add color instances
+	 * "/fun, /fun list, /rekt <player>
+	 * 
 	 */
 		
 	private static ProjectFun plugin;
@@ -39,6 +41,7 @@ public class ProjectFun extends JavaPlugin {
 	public void registerAllCommands() {
 				
 		plugin.getCommand("slap").setExecutor(new SlapCommand());		
+		plugin.getCommand("hug").setExecutor(new HugCommand());
 		
 	}
 	
