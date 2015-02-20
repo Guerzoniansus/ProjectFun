@@ -42,6 +42,8 @@ public class ProjectFun extends JavaPlugin {
 				
 		plugin.getCommand("slap").setExecutor(new SlapCommand());		
 		plugin.getCommand("hug").setExecutor(new HugCommand());
+		plugin.getCommand("lick").setExecutor(new LickCommand());
+		plugin.getCommand("rainbow").setExecutor(new RainbowCommand());
 		
 	}
 	

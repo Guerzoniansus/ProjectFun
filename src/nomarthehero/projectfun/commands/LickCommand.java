@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class HugCommand implements CommandExecutor {
+public class LickCommand implements CommandExecutor {
 	
 	/*
 	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
@@ -18,9 +18,9 @@ public class HugCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = /hug;
+	private String command = lick;
 	
-	private String permission = projectfun.hug;
+	private String permission = projectfun.lick;
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -38,12 +38,12 @@ public class HugCommand implements CommandExecutor {
 				else {
 					
 					if (args.length == 0) {
-						   p1.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
+						   p1.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /lick <player>");
 						   return true;
 					}
 					
 					else if (args.length > 1) {
-							p1.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
+							p1.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /lick <player>");
 							return true;
 					}
 					
@@ -52,24 +52,26 @@ public class HugCommand implements CommandExecutor {
 					String cooldown = getConfig().getString("cooldown-time");
 					
 
-					if(target != null || args[0].equalsIgnoreCase("all")) {
+					if(target != null) {
+						
+						if(target.getName().equals("Dest5")) {
+							sender.sendMessage(ChatColor.DARK_RED + "Error: " + ChatColor.RED + "You can't lick the ultimate waffle.");
+							return true;
+						}
 						
 					int cooldownTime = Integer.parseInt(cooldown);
 					
 					if(cooldowns.containsKey(p1.getName())) {
 						long secondsLeft = ((cooldowns.get(p1.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
 						if(secondsLeft>0) {
-							p1.sendMessage(ChatColor.RED + "You can only hug one player every 100 seconds.");
+							p1.sendMessage(ChatColor.RED + "Your toungue is still dry from the last lick, please wait.");
 							return true;
 						}
 					}
 						cooldowns.put(p, System.currentTimeMillis());
 						
 						if (target != null) {
-							Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + p + ChatColor.RED + " hugged " + ChatColor.LIGHT_PURPLE + target.getName() + ChatColor.DARK_RED + " ♥");
-							}
-					
-						return true;
+							Bukkit.broadcastMessage(ChatColor.BLUE + p + ChatColor.RED + " l" + ChatColor.PURPLE + "i" + ChatColor.GOLD + "c" + ChatColor.LIGHT_BLUE + "k" + ChatColor.YELLOW + "e" + ChatColor.WHITE + "d" + ChatColor.BLUE + target.getName() + ChatColor.DARK_RED + "!");
 						
 					} else {
 						
