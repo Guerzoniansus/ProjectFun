@@ -39,7 +39,7 @@ public class RainbowCommand implements CommandExecutor {
 					
 					if (player.hasPermission("projectfun.rainbow") {
 						
-						int i = 0;
+						int i = rand(0,15);
 						
 						StringBuilder sb = new StringBuilder();
 						

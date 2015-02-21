@@ -1,3 +1,24 @@
 name: ProjectFun
 main: nomarthehero.projectfun.ProjectFun
 version: 1.0
+commands:
+  slap:
+    description: Slap somebody
+    usage: /slap <player>
+    permission: projectfun.slap
+    permission-message: Missing permission.
+  hug:
+    description: Hug somebody
+    usage: /hug <player>
+    permission: projectfun.hug
+    permission-message: Missing permission.
+  lick:
+    description: Lick somebody
+    usage: /lick <player>
+    permission: projectfun.lick
+    permission-message: Missing permission.
+  rainbow:
+    description: Turn rainbow mode on/off
+    usage: /rainbow
+    permission: projectfun.rainbow
+    permission-message: Missing permission.
