@@ -22,3 +22,8 @@ commands:
     usage: /rainbow
     permission: projectfun.rainbow
     permission-message: Missing permission.
+  rage:
+    description: Rage to death
+    usage: /rage
+    permission: projectfun.rage
+    permission-message: Missing permission.

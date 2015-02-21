@@ -11,6 +11,7 @@ public class Hashtag {
 	public void registerHashtags() {
 		
 		//PUT NEW WORDS WITH REPLACEMENTS HERE
+		//add("#HashTag", "Emoji");
 		add("#donger",  "ヽ༼°ل͜°༽ﾉ");
 		add("#tableflip2", "(╯°Д°）╯︵ /(.□ . \\)");
 		add("#tableflip", "(╯°□°)╯︵ ┻━┻");		
