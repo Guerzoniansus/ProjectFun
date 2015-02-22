@@ -1,4 +1,4 @@
-package nomarthehero.projectfun;
+package src.nomarthehero.projectfun;
 
 import java.util.HashMap;
 

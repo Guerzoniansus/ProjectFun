@@ -1,6 +1,4 @@
-package nomarthehero.projectfun.commands;
-
-import nomarthehero.projectfun.ProjectFun;
+package src.nomarthehero.projectfun.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -1,4 +1,4 @@
-package nomarthehero.projectfun;
+package src.nomarthehero.projectfun;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -1,7 +1,7 @@
-package nomarthehero.projectfun.commands;
+package src.nomarthehero.projectfun.commands;
 
-import nomarthehero.projectfun.ProjectFun;
-
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,9 +18,9 @@ public class LickCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = lick;
+	private String command = "lick";
 	
-	private String permission = projectfun.lick;
+	private String permission = "projectfun.lick";
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

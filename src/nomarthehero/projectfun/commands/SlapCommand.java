@@ -1,6 +1,4 @@
-package nomarthehero.projectfun.commands;
-
-import nomarthehero.projectfun.ProjectFun;
+package src.nomarthehero.projectfun.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +8,9 @@ import org.bukkit.entity.Player;
 public class SlapCommand implements CommandExecutor {
 	
 	
-	private String command = /slap;
+	private String command = "/slap";
 	
-	private String permission = projectfun.slap;
+	private String permission = "projectfun.slap";
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

@@ -1,22 +1,25 @@
+package src.nomarthehero.projectfun;
 
-public Enum Messages {
+import org.bukkit.ChatColor;
+
+public enum Messages {
 	
 	//TODO: Make all color variables
 	//Example VVVV
 	
 	ChatColor gold = ChatColor.GOLD;
 	
-	
 	SLAP("player1 SLAPPED player2!"),
 	HUG("Virtually hugged player2, awww!");
-	
-	
+		
 	private String message;
 	
 	
 	public Messages(String messageAsString) {
 		message = messageAsString;
 	}
+	
+	
 	
 	public String get(String player1, String player2) {
 		

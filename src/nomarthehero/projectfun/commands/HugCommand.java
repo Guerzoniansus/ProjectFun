@@ -1,7 +1,7 @@
-package nomarthehero.projectfun.commands;
+package src.nomarthehero.projectfun.commands;
 
-import nomarthehero.projectfun.ProjectFun;
-
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,9 +18,9 @@ public class HugCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = /hug;
+	private String command = "/hug";
 	
-	private String permission = projectfun.hug;
+	private String permission = "projectfun.hug";
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -38,16 +38,16 @@ public class HugCommand implements CommandExecutor {
 				else {
 					
 					if (args.length == 0) {
-						   p1.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
+						   player.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
 						   return true;
 					}
 					
 					else if (args.length > 1) {
-							p1.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
+							player.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
 							return true;
 					}
 					
-					String p = p1.getName();
+					String p = player.getName();
 					Player target = Bukkit.getPlayer(args[0]);
 					String cooldown = getConfig().getString("cooldown-time");
 					
