@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import src.nomarthehero.projectfun.ProjectFun;
 
-public class LickCommand extends JavaPlugin implements CommandExecutor {
+public class RektCommand extends JavaPlugin implements CommandExecutor {
 	
 	/*
 	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
@@ -21,12 +21,12 @@ public class LickCommand extends JavaPlugin implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
+	private String command = "rek";
+	
+	private String permission = "projectfun.rekt";
+	
 	ProjectFun PF = new ProjectFun();
 	
-	private String command = "lick";
-	
-	private String permission = "projectfun.lick";
-
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
@@ -43,36 +43,34 @@ public class LickCommand extends JavaPlugin implements CommandExecutor {
 				else {
 					
 					if (args.length == 0) {
-						   sender.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /lick <player>");
+						   player.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /rek <player>");
 						   return true;
 					}
 					
-					String p = sender.getName();
+					String p = player.getName();
 					Player target = Bukkit.getPlayer(args[0]);
-					String cooldown = this.getConfig().getString("cooldown");
+					String cooldown = getConfig().getString("cooldown");
 					
 
-					if(target != null) {
-						
-						if(target.getName().equals("Dest5")) {
-							sender.sendMessage(ChatColor.DARK_RED + "Error: " + ChatColor.RED + "You can't lick the waffle.");
-							return true;
-						}
+					if(target != null || args[0].equalsIgnoreCase("all")) {
 						
 					int cooldownTime = Integer.parseInt(cooldown);
 					
-					if(PF.lickCool.containsKey(sender.getName())) {
-						long secondsLeft = ((PF.lickCool.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
+					if(PF.hugCool.containsKey(sender.getName())) {
+						long secondsLeft = ((PF.rektCool.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
 						if(secondsLeft>0) {
-							sender.sendMessage(ChatColor.RED + "Your toungue is still dry from the last lick, please wait.");
+							sender.sendMessage(ChatColor.RED + "You can only rek one player every 100 seconds.");
 							return true;
 						}
 					}
-						PF.lickCool.put(p, System.currentTimeMillis());
+						PF.hugCool.put(p, System.currentTimeMillis());
 						
 						if (target != null) {
-							Bukkit.broadcastMessage(ChatColor.BLUE + p + ChatColor.RED + " l" + ChatColor.LIGHT_PURPLE + "i" + ChatColor.GOLD + "c" + ChatColor.BLUE + "k" + ChatColor.YELLOW + "e" + ChatColor.WHITE + "d " + ChatColor.BLUE + target.getName() + ChatColor.DARK_RED + "!");
-							return true;
+							Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + p + ChatColor.RED + " rekt " + ChatColor.LIGHT_PURPLE + target.getName() + ChatColor.DARK_RED + "!");
+							}
+					
+						return true;
+						
 					} else {
 						
 						sender.sendMessage(ChatColor.RED + "Player not online.");
@@ -80,18 +78,15 @@ public class LickCommand extends JavaPlugin implements CommandExecutor {
 						
 					}
 					
-					
-				}
-				return false;
-				
-			}
-					
 				}
 				
 			}
+			
+			else return true;			
+		}
+				
 		return true;
 	}
-			
 	
 	
 	public String getCommand() {	

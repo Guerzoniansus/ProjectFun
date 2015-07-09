@@ -1,16 +1,12 @@
 package src.nomarthehero.projectfun;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import nomarthehero.projectfun.commands.BaseCommand;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import src.nomarthehero.projectfun.commands.HugCommand;
-import src.nomarthehero.projectfun.commands.LickCommand;
-import src.nomarthehero.projectfun.commands.RainbowCommand;
-import src.nomarthehero.projectfun.commands.SlapCommand;
+import src.nomarthehero.projectfun.commands.*;
 
 
 public class ProjectFun extends JavaPlugin {
@@ -18,16 +14,18 @@ public class ProjectFun extends JavaPlugin {
 	/*
 	 * TODO:
 	 *
-	 * "/fun, /fun list, /slap <player>, /rekt <player>, /hug <player>
-	 * Hashtags: Angry, Cry, search for more, 
-	 * Messages class: Add color instances
-	 * "/fun, /fun list, /rekt <player>
+	 * Messages class w/color instances
 	 * 
 	 */
 	
-	private HashMap<String, Long> hugCool = new HashMap<String, Long>();
-	private HashMap<String, Long> slapCool = new HashMap<String, Long>();
-	private HashMap<String, Long> rageCool = new HashMap<String, Long>();
+	public HashMap<String, Long> hugCool = new HashMap<String, Long>();
+	public HashMap<String, Long> slapCool = new HashMap<String, Long>();
+	public HashMap<String, Long> rageCool = new HashMap<String, Long>();
+	public HashMap<String, Long> lickCool = new HashMap<String, Long>();
+	public HashMap<String, Long> rektCool = new HashMap<String, Long>();
+	
+	public Set<String> didRage = new HashSet<String>();
+	public Set<String> hasRainbow = new HashSet<String>();
 
 		
 	private static ProjectFun plugin;
@@ -57,6 +55,9 @@ public class ProjectFun extends JavaPlugin {
 		plugin.getCommand("hug").setExecutor(new HugCommand());
 		plugin.getCommand("lick").setExecutor(new LickCommand());
 		plugin.getCommand("rainbow").setExecutor(new RainbowCommand());
+		plugin.getCommand("rage").setExecutor(new RageCommand());
+		plugin.getCommand("rek").setExecutor(new RektCommand());
+		plugin.getCommand("fun").setExecutor(new FunCommand());
 		
 	}
 	
@@ -71,6 +72,7 @@ public class ProjectFun extends JavaPlugin {
 	private Long getCooldown(CommandEnum cmd, String player) {
 		
 		if (cmd == CommandEnum.HUG) return hugCool.get(player);
+		return null;
 
 		
 	}

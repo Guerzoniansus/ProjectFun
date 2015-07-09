@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
+import src.nomarthehero.projectfun.ProjectFun;
+
 public class RageCommand implements CommandExecutor {
 	
 	/*
@@ -18,9 +20,11 @@ public class RageCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = null;
+	private String command = "rage";
 	
-	private String permission = null;
+	private String permission = "projectfun.rage";
+	
+	ProjectFun PF = new ProjectFun();
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -40,16 +44,16 @@ public class RageCommand implements CommandExecutor {
 					String p = sender.getName();
                 	int cooldownTime = 30;
         			
-        			if(cooldowns.containsKey(sender.getName())) {
-        				long secondsLeft = ((cooldowns.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
+        			if(PF.rageCool.containsKey(sender.getName())) {
+        				long secondsLeft = ((PF.rageCool.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
         				if(secondsLeft>0) {
         					sender.sendMessage(ChatColor.RED + "You can only rage once every 100 seconds.");
         					return true;
         				}
         			}
-        				cooldowns.put(p, System.currentTimeMillis());
+        				PF.rageCool.put(p, System.currentTimeMillis());
                         Player p1 = (Player)sender;
-                        didRage.add(p1.getName());
+                        PF.didRage.add(p1.getName());
                         p1.setHealth(0);
                         return true;
 					
@@ -66,9 +70,9 @@ public class RageCommand implements CommandExecutor {
 	 public void onDead(PlayerDeathEvent e){
 	        Player p = (Player)e.getEntity();
 	       
-	        if (didRage.contains(p.getName())){
-	                e.setDeathMessage(ChatColor.DARK_RED + p.getName() + " Raged To Death");
-	                didRage.remove(p.getName());
+	        if (PF.didRage.contains(p.getName())){
+	                e.setDeathMessage(ChatColor.DARK_RED + p.getName() + " raged to Death");
+	                PF.didRage.remove(p.getName());
 	                return;
 	        }
 	    }

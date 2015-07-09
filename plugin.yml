@@ -1,6 +1,6 @@
 name: ProjectFun
-main: nomarthehero.projectfun.ProjectFun
-version: 1.0
+main: src.nomarthehero.projectfun.ProjectFun
+version: 1.6
 commands:
   slap:
     description: Slap somebody
@@ -17,6 +17,11 @@ commands:
     usage: /lick <player>
     permission: projectfun.lick
     permission-message: Missing permission.
+  rekt:
+    description: Rek somebody like the Call of Duty kids would
+    usage: /rek <player>
+    permission: projectfun.rekt
+    permission-message: Missing permission.
   rainbow:
     description: Turn rainbow mode on/off
     usage: /rainbow
@@ -26,4 +31,9 @@ commands:
     description: Rage to death
     usage: /rage
     permission: projectfun.rage
+    permission-message: Missing permission.
+  fun:
+    description: Base command
+    usage: /fun
+    permission: projectfun.fun
     permission-message: Missing permission.

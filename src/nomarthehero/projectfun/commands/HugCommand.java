@@ -6,8 +6,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class HugCommand implements CommandExecutor {
+import src.nomarthehero.projectfun.ProjectFun;
+
+public class HugCommand extends JavaPlugin implements CommandExecutor {
 	
 	/*
 	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
@@ -18,7 +21,9 @@ public class HugCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = "/hug";
+	ProjectFun PF = new ProjectFun();
+	
+	private String command = "hug";
 	
 	private String permission = "projectfun.hug";
 	
@@ -42,28 +47,23 @@ public class HugCommand implements CommandExecutor {
 						   return true;
 					}
 					
-					else if (args.length > 1) {
-							player.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /hug <player>");
-							return true;
-					}
-					
 					String p = player.getName();
 					Player target = Bukkit.getPlayer(args[0]);
-					String cooldown = getConfig().getString("cooldown-time");
+					String cooldown = getConfig().getString("cooldown");
 					
 
 					if(target != null || args[0].equalsIgnoreCase("all")) {
 						
 					int cooldownTime = Integer.parseInt(cooldown);
 					
-					if(cooldowns.containsKey(p1.getName())) {
-						long secondsLeft = ((cooldowns.get(p1.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
+					if(PF.hugCool.containsKey(sender.getName())) {
+						long secondsLeft = ((PF.hugCool.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
 						if(secondsLeft>0) {
-							p1.sendMessage(ChatColor.RED + "You can only hug one player every 100 seconds.");
+							sender.sendMessage(ChatColor.RED + "You can only hug one player every 100 seconds.");
 							return true;
 						}
 					}
-						cooldowns.put(p, System.currentTimeMillis());
+						PF.hugCool.put(p, System.currentTimeMillis());
 						
 						if (target != null) {
 							Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + p + ChatColor.RED + " hugged " + ChatColor.LIGHT_PURPLE + target.getName() + ChatColor.DARK_RED + " ♥");
@@ -73,26 +73,21 @@ public class HugCommand implements CommandExecutor {
 						
 					} else {
 						
-						p1.sendMessage(ChatColor.RED + "Player not online.");
+						sender.sendMessage(ChatColor.RED + "Player not online.");
 						return true;
 						
 					}
 					
 					
 				}
-				return false;
 				
 			}
 					
 				}
+		return true;
 				
 			}
-			
-			else return true;			
-		}
-				
-		return true;
-	}
+
 	
 	
 	public String getCommand() {	

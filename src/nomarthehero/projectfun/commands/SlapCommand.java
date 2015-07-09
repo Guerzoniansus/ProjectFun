@@ -1,17 +1,23 @@
 package src.nomarthehero.projectfun.commands;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class SlapCommand implements CommandExecutor {
+import src.nomarthehero.projectfun.ProjectFun;
+
+public class SlapCommand extends JavaPlugin implements CommandExecutor {
 	
+	ProjectFun PF = new ProjectFun();
 	
-	private String command = "/slap";
+	private String command = "slap";
 	
 	private String permission = "projectfun.slap";
-	
+		
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
@@ -28,32 +34,27 @@ public class SlapCommand implements CommandExecutor {
 				else {
 					
 					if (args.length == 0) {
-						   p1.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /slap <player>");
+						   sender.sendMessage(ChatColor.RED + "Not enough arguments!" + ChatColor.DARK_AQUA + " /slap <player>");
 						   return true;
 					}
 					
-					else if (args.length > 1) {
-							p1.sendMessage(ChatColor.RED + "Too many arguments!" + ChatColor.DARK_AQUA + " /slap <player>");
-							return true;
-					}
-					
-					String p = p1.getName();
+					String p = sender.getName();
 					Player target = Bukkit.getPlayer(args[0]);
-					String cooldown = getConfig().getString("cooldown-time");
+					String cooldown = this.getConfig().getString("cooldown");
 					
 
 					if(target != null || args[0].equalsIgnoreCase("all")) {
 						
 					int cooldownTime = Integer.parseInt(cooldown);
 					
-					if(cooldowns.containsKey(p1.getName())) {
-						long secondsLeft = ((cooldowns.get(p1.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
+					if(PF.slapCool.containsKey(sender.getName())) {
+						long secondsLeft = ((PF.slapCool.get(sender.getName())/1000+cooldownTime) - System.currentTimeMillis()/1000);
 						if(secondsLeft>0) {
-							p1.sendMessage(ChatColor.RED + "Woah woah, calm down dude!");
+							sender.sendMessage(ChatColor.RED + "Woah woah, calm down dude!");
 							return true;
 						}
 					}
-						cooldowns.put(p, System.currentTimeMillis());
+						PF.slapCool.put(p, System.currentTimeMillis());
 						
 						if (target != null) {
 							Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + p + ChatColor.YELLOW + " S" + ChatColor.RED + "L" + ChatColor.GRAY + "A" + ChatColor.GREEN + "P" + ChatColor.DARK_PURPLE + "P" + ChatColor.AQUA + "E" + ChatColor.BLUE + "D " + ChatColor.LIGHT_PURPLE + target.getName() + ChatColor.DARK_RED + "!");
@@ -66,26 +67,20 @@ public class SlapCommand implements CommandExecutor {
 						
 					} else {
 						
-						p1.sendMessage(ChatColor.RED + "Player not online.");
+						sender.sendMessage(ChatColor.RED + "Player not online.");
 						return true;
 						
 					}
 					
 					
 				}
-				return false;
 				
 			}
 					
 				}
-				
-			}
-			
-			else return true;			
-		}
-				
 		return true;
-	}
+				
+			}	
 	
 	
 	public String getCommand() {	

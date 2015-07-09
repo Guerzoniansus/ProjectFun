@@ -1,9 +1,12 @@
 package src.nomarthehero.projectfun.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import src.nomarthehero.projectfun.ProjectFun;
 
 public class RainbowCommand implements CommandExecutor {
 	
@@ -16,9 +19,11 @@ public class RainbowCommand implements CommandExecutor {
 	 * Make sure to register the command in ProjectFun
 	 */
 	
-	private String command = rainbow;
+	private String command = "/rainbow";
 	
-	private String permission = projectfun.rainbow;
+	private String permission = "projectfun.rainbow";
+	
+	ProjectFun PF = new ProjectFun();
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -35,28 +40,15 @@ public class RainbowCommand implements CommandExecutor {
 				
 				else {
 					
-					if (player.hasPermission("projectfun.rainbow") {
-						
-						int i = rand(0,15);
-						
-						StringBuilder sb = new StringBuilder();
-						
-						for (String word : args[]) {
-							
-							if (i == 8)
-								i = 0;
-								
-							String newWord = getColor(i) + word;
-							
-							sb.add(newWord + "");
-							
-							i++;
-						}
-						
-						String coloredMessage = sb.toString();
-						
-						player.chat(coloredMessage());
+					if(PF.hasRainbow.contains(sender.getName())) {
+						PF.hasRainbow.remove(sender.getName());
+						sender.sendMessage(ChatColor.YELLOW + "Rainbow mode disabled!");
+					} else {
+						PF.hasRainbow.add(sender.getName());
+						sender.sendMessage(ChatColor.YELLOW + "Rainbow mode enabled!");
 					}
+					
+				}
 				
 			}
 			
@@ -77,29 +69,4 @@ public class RainbowCommand implements CommandExecutor {
 	}
 	
 
-}
-	
-	private ChatColor getColor(int i) {
-		
-		switch (i) {
-			
-			case 0: return ChatColor.BLACK; break;
-			case 1: return ChatColor.DARK_BLUE; break;
-			case 2: return ChatColor.DARK_GREEN; break;
-			case 3: return ChatColor.DARK_AQUA; break;
-			case 4: return ChatColor.DARK_RED; break;
-			case 5: return ChatColor.DARK_PURPLE; break;
-			case 6: return ChatColor.GOLD; break;
-			case 7: return ChatColor.GRAY; break;
-			case 8: return ChatColor.DARK_GRAY; break;
-			case 9: return ChatColor.BLUE; break;
-			case 10: return ChatColor.GREEN; break;
-			case 11: return ChatColor.AQUA; break;
-			case 12: return ChatColor.RED; break;
-			case 13: return ChatColor.LIGHT_PURPLE; break;
-			case 14: return ChatColor.YELLOW; break;
-			case 15: return ChatColor.WHITE; break;
-			
-		}
-	
 }

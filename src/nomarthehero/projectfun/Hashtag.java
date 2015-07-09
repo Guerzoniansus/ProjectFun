@@ -18,6 +18,9 @@ public class Hashtag {
 		add("#molly", "༼ つ ◕_◕ ༽つ");
 		add("#happy", "☆*｡. o(≧▽≦)o .｡*☆");
 		add("#facepalm", "(－‸ლ)");
+		add("#rage", "ლ(ಠ益ಠლ)");
+		add("#cry", "(╯︵╰,)");
+		
 	}
 	
 	
